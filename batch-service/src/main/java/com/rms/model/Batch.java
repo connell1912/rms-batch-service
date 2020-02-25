@@ -3,43 +3,16 @@ package com.rms.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "batch")
 public class Batch {
      
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int batchId; 
-
-    @Column
     private String batchName;
-
-    @Column
     private LocalDate startDate;
-
-    @Column
     private LocalDate endDate;
-
-    @Column
     private int trainerId;
-
-    @Column
     private int coTrainerId;
-
-    @Column
     private int[] associates;
-
-    @Column
     private Curriculum curriculum;
-
-    @Column
     private ResourceMetadata resourceMetadata;
 
     public Batch() {

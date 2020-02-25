@@ -2,27 +2,12 @@ package com.rms.model;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "resource_metadata")
 public class ResourceMetadata {
 
-    @Column
     private int resourceCreator;
-
-    @Column
     private String resourceCreationDateTime;
-
-    @Column
     private int lastModifier;
-
-    @Column
     private String lastModifiedDateTime;
-
-    @Column
     private int resourceOwner;
 
     public ResourceMetadata() {
