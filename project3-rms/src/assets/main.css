@@ -1,0 +1,30 @@
+/* . is for className, # is for id */
+
+.mainPage {
+  text-align: center;
+  margin-top: 0%;
+  border: none;
+  border-radius: 20px;
+}
+
+.registerDiv {
+  background-color: cornsilk;
+  padding: 40px;
+  margin-top: 20%;
+  border-radius: 20px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.registerForm {
+}
+
+.loginDiv {
+  background-color: cornsilk;
+  padding: 40px;
+  margin-top: 20%;
+  border-radius: 20px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.loginForm {
+}
