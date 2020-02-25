@@ -1,25 +1,23 @@
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
+import { registerReducer } from "./register-reducer";
 
-
-// describe the data we want from the login component
 export interface IUserState {
-    currentUser:any;
-    loginMessage:string;
+  currentUser: any;
+  loginMessage: string;
 }
 
-// it will containe subinterfaces that represent different parts of state
+export interface IRegisterState {
+  newUser: any;
+  registerMessage: string;
+}
+
 export interface IState {
-    userState : IUserState;
+  userState: IUserState;
+  registerState: IRegisterState;
 }
 
-// we will take the individual reduces for each part of state
-// and turn them into one super reducer that represents all of state
 export const state = combineReducers<IState>({
-    userState:loginReducer
-})
-
-export interface IRegisterState{
-    newUser:any;
-    createMessage:string;
-}
+  userState: loginReducer,
+  registerState: registerReducer
+});

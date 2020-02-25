@@ -35,6 +35,34 @@ export const apiLogin = async (username: string, password: string) => {
   }
 };
 
-export const addUser = (body: IUser) => {
-    return axiosConfig.post("newuser.app", body);
-  };
+export const addUser = async (body: IUser) => {
+  try {
+    const response = await axiosConfig.post("addUser.app", {
+      body
+    });
+    if (response.status === 200) {
+      const body = await response.data;
+      console.log(body);
+
+      return {
+        body,
+        registerMessage: "Successful Register"
+      };
+    } else if (response.status === 401) {
+      return {
+        registerMessage: "Registration failed",
+        body: null
+      };
+    } else {
+      return {
+        registerMessage: "Something Went Wrong",
+        body: null
+      };
+    }
+  } catch (e) {
+    console.log(e);
+    return {
+      loginMessage: "Something Went Wrong"
+    };
+  }
+};

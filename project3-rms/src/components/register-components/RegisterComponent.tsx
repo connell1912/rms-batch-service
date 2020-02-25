@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Col, Input, Button } from "reactstrap";
 import { addUser } from "../../utility/api";
-import { Link } from "react-router-dom";
+import IUser from "../../model/IUser";
 
-export const RegisterComponent: React.FC<any> = (props: any) => {
-  const [username, setUsername] = useState("");
+interface IRegisterProps {
+  addUser: (body: IUser) => void;
+  registerMessage: string;
+}
+
+export const RegisterComponent: React.FC<any> = (props: IRegisterProps) => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [roles, setRoles] = useState();
 
   return (
@@ -17,28 +24,60 @@ export const RegisterComponent: React.FC<any> = (props: any) => {
           onSubmit={() =>
             addUser({
               userId: 0,
-              username: username,
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
               password: password,
               employeeId: 0,
               roles: roles
-            }).then(r => console.log(r.data))
+            }).then(r => console.log(r.body))
           }
         >
           <FormGroup row>
-            <Label for="username" sm={2}>
-              Username
+            <Label for="email" sm={2}>
+              Email
+            </Label>
+            <Col sm={10}>
+              <Input
+                required
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                onChange={val => setEmail(val.target.value)}
+              />
+              {/* <FormFeedback valid tooltip>Username is available!</FormFeedback>
+                <FormFeedback invalid tooltip>Username is unavailable, please select another.</FormFeedback> */}
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="firstName" sm={2}>
+              First Name
             </Label>
             <Col sm={10}>
               <Input
                 required
                 type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                onChange={val => setUsername(val.target.value)}
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                onChange={val => setFirstName(val.target.value)}
               />
-              {/* <FormFeedback valid tooltip>Username is available!</FormFeedback>
-                <FormFeedback invalid tooltip>Username is unavailable, please select another.</FormFeedback> */}
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="lastName" sm={2}>
+              Last Name
+            </Label>
+            <Col sm={10}>
+              <Input
+                required
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+                onChange={val => setLastName(val.target.value)}
+              />
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -56,20 +95,6 @@ export const RegisterComponent: React.FC<any> = (props: any) => {
               />
             </Col>
           </FormGroup>
-          {/* <FormGroup row>
-              <Label for="confirmPassword" sm={2}>
-                Confirm Password
-              </Label>
-              <Col sm={10}>
-                <Input
-                  required
-                  type="password"
-                  id="confirm_password"
-                  name="confirm_password"
-                  placeholder="Confirm Password"
-                />
-              </Col>
-            </FormGroup> */}
           <FormGroup row>
             <Label for="roles" sm={2}>
               Role
@@ -82,12 +107,12 @@ export const RegisterComponent: React.FC<any> = (props: any) => {
                 onChange={val => setRoles(val.target.value)}
               >
                 <option selected disabled>
-                  Select a role
+                  Select a Role
                 </option>
                 <option>Training Manager</option>
                 <option>Building Manager</option>
                 <option>Trainer</option>
-                <option>Locked</option>
+                <option>Admin</option>
               </Input>
             </Col>
           </FormGroup>
@@ -96,7 +121,7 @@ export const RegisterComponent: React.FC<any> = (props: any) => {
           </Button>
         </Form>
         <br />
-        <Link to="/">Home</Link>
+        <p>{props.registerMessage}</p>
       </div>
     </>
   );
