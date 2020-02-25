@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/")
 public class ResourceMetadataController {
 
+    // changes
+
     ResourceMetadataService rms;
 
     @Autowired
