@@ -6,6 +6,7 @@ import com.rms.service.BatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,12 @@ public class BatchController{
     @PutMapping(value = "/updatebatch")
     public Batch updateBatch(Batch b) {
         return bs.update(b);
+    }
+
+    // have this update by ID method in case we need it
+    @PutMapping(value = "/updatebatch{id}")
+    public Batch updateById(@PathVariable("id") int id) {
+        return bs.updateById(id);
     }
 
     @DeleteMapping(value = "/deletebatch")

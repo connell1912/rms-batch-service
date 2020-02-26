@@ -30,6 +30,11 @@ public class BatchService {
         return bdc.save(b);
     }
 
+    public Batch updateById(int id) {
+        Batch b = bdc.findById(id).get();
+        return bdc.save(b);
+    }
+
     public void delete(Batch b){
         bdc.delete(b);
     }
