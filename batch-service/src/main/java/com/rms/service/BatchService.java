@@ -22,6 +22,10 @@ public class BatchService {
         return bdc.findAll();
     }
 
+    public Batch findBatchById(int id) {
+        return bdc.findById(id).get();
+    }
+
     public Batch insert(Batch b) {
         return bdc.save(b);
     }

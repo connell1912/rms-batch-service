@@ -4,9 +4,14 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -14,18 +19,30 @@ import javax.persistence.Table;
 public class Batch {
      
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="BatchID_seq", sequenceName = "BatchID_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BatchID_seq")
     private int batchId; 
+    
     private String batchName;
+    
     private LocalDate startDate;
+    
     private LocalDate endDate;
+    
     private int trainerId;
+    
     private int coTrainerId;
+    
     private int[] associates;
+    
+    @Enumerated(EnumType.STRING)
     private Curriculum curriculum;
+
+    @OneToOne(fetch = FetchType.EAGER)
     private ResourceMetadata resourceMetadata;
 
     public Batch() {
+        super();
     }
 
     public Batch(int batchId, String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int[] associates, Curriculum curriculum, ResourceMetadata resourceMetadata) {

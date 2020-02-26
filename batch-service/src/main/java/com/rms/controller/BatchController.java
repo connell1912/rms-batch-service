@@ -28,6 +28,11 @@ public class BatchController{
         return bs.readAll();
     }
 
+    @GetMapping(value = "/batch{id}")
+    public Batch findBatchById(@PathVariable("id") int id) {
+        return bs.findBatchById(id);
+    }
+
     @PostMapping(value = "/newbatch")
     public Batch addNewbatch(Batch b) {
         return bs.insert(b);

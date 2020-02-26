@@ -3,11 +3,15 @@ package com.rms.model;
 import java.util.Objects;
 
 public class ResourceMetadata {
-
+    
     private int resourceCreator;
+    
     private String resourceCreationDateTime;
+    
     private int lastModifier;
+    
     private String lastModifiedDateTime;
+    
     private int resourceOwner;
 
     public ResourceMetadata() {
