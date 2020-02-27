@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class BatchService {
 
+    @Autowired
     BatchDaoContract bdc;
 
-    @Autowired
     public void setBdc(BatchDaoContract bdc) {
         this.bdc = bdc;
     }
@@ -40,6 +40,11 @@ public class BatchService {
     }
 
     public void delete(Batch b){
+        bdc.delete(b);
+    }
+
+    public void deleteById(int id) {
+        Batch b = bdc.findById(id).get();
         bdc.delete(b);
     }
 
