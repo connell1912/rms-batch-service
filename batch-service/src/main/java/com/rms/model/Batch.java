@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 @Entity
 @Table
 public class Batch {
@@ -41,7 +43,7 @@ public class Batch {
     private int coTrainerId;
     
     @Column
-    private int[] associates;
+    private int associates;
     
     @Column
     @Enumerated(EnumType.STRING)
@@ -54,7 +56,7 @@ public class Batch {
         super();
     }
 
-    public Batch(int batchId, String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int[] associates, Curriculum curriculum) {
+    public Batch(int batchId, String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum) {
         this.batchId = batchId;
         this.batchName = batchName;
         this.startDate = startDate;
@@ -66,7 +68,7 @@ public class Batch {
         // this.resourceMetadata = resourceMetadata;
     }
 
-    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int[] associates, Curriculum curriculum) {
+    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum) {
         this.batchName = batchName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -125,11 +127,11 @@ public class Batch {
         this.coTrainerId = coTrainerId;
     }
 
-    public int[] getAssociates() {
+    public int getAssociates() {
         return this.associates;
     }
 
-    public void setAssociates(int[] associates) {
+    public void setAssociates(int associates) {
         this.associates = associates;
     }
 
@@ -179,7 +181,7 @@ public class Batch {
         return this;
     }
 
-    public Batch associates(int[] associates) {
+    public Batch associates(int associates) {
         this.associates = associates;
         return this;
     }
