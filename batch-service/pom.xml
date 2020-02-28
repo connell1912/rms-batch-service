@@ -18,7 +18,7 @@
     <sonar.projectKey>connell1912_rms-batch-service</sonar.projectKey>
     <sonar.organization>connell1912</sonar.organization>
     <sonar.host.url>https://sonarcloud.io/</sonar.host.url>
-    <sonar.login>b5fa08c648e132902183715dea7b904963b2c079</sonar.login>
+    <sonar.login>ab046098a9cebf034830f5df07d991dd9b628ac1</sonar.login>
   </properties>
   <dependencies>
     <dependency>
