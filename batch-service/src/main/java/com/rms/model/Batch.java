@@ -50,7 +50,32 @@ public class Batch {
     @Enumerated(EnumType.STRING)
     private Curriculum curriculum;
 
+    @Column
     @OneToOne
     private ResourceMetadata resourceMetadata;
+
+
+    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum) {
+        this.batchName = batchName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.trainerId = trainerId;
+        this.coTrainerId = coTrainerId;
+        this.associates = associates;
+        this.curriculum = curriculum;
+    }
+
+
+    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum, ResourceMetadata resourceMetadata) {
+        this.batchName = batchName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.trainerId = trainerId;
+        this.coTrainerId = coTrainerId;
+        this.associates = associates;
+        this.curriculum = curriculum;
+        this.resourceMetadata = resourceMetadata;
+    }
+    
     
 }

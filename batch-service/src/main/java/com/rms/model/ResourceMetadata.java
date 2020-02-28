@@ -1,11 +1,15 @@
 package com.rms.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,13 +30,15 @@ public class ResourceMetadata {
     private int resourceCreator;
 
     @Column
-    private String resourceCreatorDateTime;
+    @CreationTimestamp
+    private Timestamp resourceCreatorDateTime;
 
     @Column
     private int lastModifier;
 
     @Column
-    private String lastModifiedDateTime;
+    @CreationTimestamp
+    private Timestamp lastModifiedDateTime;
 
     @Column
     private int resourceOwner;
