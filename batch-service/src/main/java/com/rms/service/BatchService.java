@@ -1,9 +1,10 @@
 package com.rms.service;
 
-import java.util.Optional;
+import java.time.LocalDate;
 
 import com.rms.dao.BatchDaoContract;
 import com.rms.model.Batch;
+import com.rms.model.Curriculum;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,8 +49,16 @@ public class BatchService {
         bdc.delete(b);
     }
 
-    public Optional<Batch> findById(int id) {
-        return bdc.findById(id);
+    public Batch findByDate(LocalDate startDate){
+        return bdc.findByStartDateBefore(startDate);
+    }
+
+    public Batch findByCurriculum(Curriculum c) {
+        return bdc.findByCurriculumEquals(c);
+    }
+
+    public Batch findByTrainer(int id) {
+        return bdc.findByTrainerIdEquals(id);
     }
 
 }
