@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
 import com.rms.service.BatchService;
+import com.rms.service.RmdService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,9 +26,8 @@ public class BatchController{
     @Autowired
     BatchService bs;
 
-    public void setBs(BatchService bs){
-        this.bs = bs;
-    }
+    @Autowired
+    RmdService rs;
 
     @GetMapping("/all")
     public Iterable<Batch> readAllBatches() {

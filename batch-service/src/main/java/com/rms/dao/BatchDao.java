@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface BatchDaoContract extends CrudRepository<Batch, Integer> {
+public interface BatchDao extends CrudRepository<Batch, Integer> {
 
     Batch findByStartDateBefore(LocalDate startDate);
 

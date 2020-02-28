@@ -2,7 +2,7 @@ package com.rms.service;
 
 import java.time.LocalDate;
 
-import com.rms.dao.BatchDaoContract;
+import com.rms.dao.BatchDao;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
 
@@ -13,52 +13,52 @@ import org.springframework.stereotype.Service;
 public class BatchService {
 
     @Autowired
-    BatchDaoContract bdc;
+    BatchDao bd;
 
-    public void setBdc(BatchDaoContract bdc) {
-        this.bdc = bdc;
+    public void setBd(BatchDao bd) {
+        this.bd = bd;
     }
 
     public Iterable<Batch> readAll() {
-        return bdc.findAll();
+        return bd.findAll();
     }
 
     public Batch findBatchById(int id) {
-        return bdc.findById(id).get();
+        return bd.findById(id).get();
     }
 
     public Batch insert(Batch b) {
-        return bdc.save(b);
+        return bd.save(b);
     }
 
     public Batch update(Batch b) {
-        return bdc.save(b);
+        return bd.save(b);
     }
 
     public Batch updateById(int id) {
-        Batch b = bdc.findById(id).get();
-        return bdc.save(b);
+        Batch b = bd.findById(id).get();
+        return bd.save(b);
     }
 
     public void delete(Batch b){
-        bdc.delete(b);
+        bd.delete(b);
     }
 
     public void deleteById(int id) {
-        Batch b = bdc.findById(id).get();
-        bdc.delete(b);
+        Batch b = bd.findById(id).get();
+        bd.delete(b);
     }
 
     public Batch findByDate(LocalDate startDate){
-        return bdc.findByStartDateBefore(startDate);
+        return bd.findByStartDateBefore(startDate);
     }
 
     public Batch findByCurriculum(Curriculum c) {
-        return bdc.findByCurriculumEquals(c);
+        return bd.findByCurriculumEquals(c);
     }
 
     public Batch findByTrainer(int id) {
-        return bdc.findByTrainerIdEquals(id);
+        return bd.findByTrainerIdEquals(id);
     }
 
 }
