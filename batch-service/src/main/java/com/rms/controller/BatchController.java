@@ -75,6 +75,7 @@ public class BatchController{
         bs.delete(b);
     }
 
+    // delete by ID in case we need it
     @DeleteMapping("/deletebyid")
     public void deleteBatchById(int id) {
         bs.deleteById(id);

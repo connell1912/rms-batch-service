@@ -28,29 +28,21 @@ public class Batch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int batchId; 
     
-    @Column
     private String batchName;
     
-    @Column
     private LocalDate startDate;
     
-    @Column
     private LocalDate endDate;
     
-    @Column
     private int trainerId;
     
-    @Column
     private int coTrainerId;
     
-    @Column
     private int associates;
     
-    @Column
     @Enumerated(EnumType.STRING)
     private Curriculum curriculum;
 
-    @Column
     @OneToOne
     private ResourceMetadata resourceMetadata;
 

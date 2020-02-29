@@ -26,20 +26,15 @@ public class ResourceMetadata {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
     private int resourceCreator;
 
-    @Column
     @CreationTimestamp
     private Timestamp resourceCreatorDateTime;
 
-    @Column
     private int lastModifier;
 
-    @Column
     @CreationTimestamp
     private Timestamp lastModifiedDateTime;
 
-    @Column
     private int resourceOwner;
 }
