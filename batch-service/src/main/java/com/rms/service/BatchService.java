@@ -24,7 +24,7 @@ public class BatchService {
     }
 
     public Batch findBatchById(int id) {
-        return bd.findById(id).get();
+        return bd.findById(id);
     }
 
     public Batch insert(Batch b) {
@@ -36,7 +36,7 @@ public class BatchService {
     }
 
     public Batch updateById(int id) {
-        Batch b = bd.findById(id).get();
+        Batch b = bd.findById(id);
         return bd.save(b);
     }
 
@@ -45,7 +45,7 @@ public class BatchService {
     }
 
     public void deleteById(int id) {
-        Batch b = bd.findById(id).get();
+        Batch b = bd.findById(id);
         bd.delete(b);
     }
 

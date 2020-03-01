@@ -20,8 +20,9 @@ public class RmdService {
         rd.save(rm);
     }
 
+    // update by ID in case we need it
     public void updateById(int id){
-        ResourceMetadata rm = rd.findById(id).get();
+        ResourceMetadata rm = rd.findById(id);
         rd.save(rm);
     }
      

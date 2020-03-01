@@ -37,4 +37,13 @@ public class ResourceMetadata {
     private Timestamp lastModifiedDateTime;
 
     private int resourceOwner;
+
+    public ResourceMetadata(int resourceCreator, Timestamp resourceCreatorDateTime, int lastModifier, Timestamp lastModifiedDateTime, int resourceOwner) {
+        this.resourceCreator = resourceCreator;
+        this.resourceCreatorDateTime = resourceCreatorDateTime;
+        this.lastModifier = lastModifier;
+        this.lastModifiedDateTime = lastModifiedDateTime;
+        this.resourceOwner = resourceOwner;
+    }
+
 }

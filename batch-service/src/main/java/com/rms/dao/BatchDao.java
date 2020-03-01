@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface BatchDao extends CrudRepository<Batch, Integer> {
 
+    Batch findById(int id);
+
     Batch findByStartDateBefore(LocalDate startDate);
 
     Batch findByCurriculumEquals(Curriculum c);
