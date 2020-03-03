@@ -111,39 +111,39 @@ public class BatchServiceTest {
         assertFalse(b2 != null);
     }
 
-    // doesn't work
     @Test
     public void testFindByDate(){
         ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        when(bd.findById(1)).thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
-        Batch b = bs.findByDate(LocalDate.now());
+        when(bd.findByStartDateBefore(start))
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+        Batch b = bs.findByDate(start);
         assertEquals("test-name", b.getBatchName());
-        assertEquals(1, b.getTrainerId());
-        assertEquals(1, b.getCoTrainerId());
+        assertEquals(start, b.getStartDate());
+        assertEquals(finish, b.getEndDate());
     }
 
-    // doesn't work
     @Test
     public void testFindByCurriculum(){
         ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        when(bd.findById(1)).thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+        when(bd.findByCurriculumEquals(Curriculum.JAVA_MSA))
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
         Batch b = bs.findByCurriculum(Curriculum.JAVA_MSA);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());
         assertEquals(finish, b.getEndDate());
     }
 
-    // doesn't work
     @Test
     public void testFindByTrainer(){
         ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        when(bd.findById(1)).thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+        when(bd.findByTrainerIdEquals(1))
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
         Batch b = bs.findByTrainer(1);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());
