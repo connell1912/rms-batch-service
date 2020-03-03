@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
 import com.rms.service.BatchService;
+import com.rms.service.RmdService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,63 +19,64 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/batch")
+@RequestMapping(value = "/batch")
 @CrossOrigin(origins = "http://localhost:3000")
 public class BatchController{
 
     @Autowired
     BatchService bs;
 
-    public void setBs(BatchService bs){
-        this.bs = bs;
-    }
+    @Autowired
+    RmdService rs;
 
-    @GetMapping("/allbatches")
+    @GetMapping("/all")
     public Iterable<Batch> readAllBatches() {
         return bs.readAll();
     }
 
-    @GetMapping("/batch{id}")
+    @GetMapping("/{id}")
     public Batch findBatchById(@PathVariable("id") int id) {
         return bs.findBatchById(id);
     }
 
-    @PostMapping("/addbatch")
+    @PostMapping("/add")
     public Batch addNewBatch(@RequestBody Batch b) {
         return bs.insert(b);
     }
 
-    @PutMapping("/updatebatch")
-    public Batch updateBatch(Batch b) {
+    @PutMapping("/update")
+    public Batch updateBatch(@RequestBody Batch b) {
         return bs.update(b);
     }
 
     // have this update by ID method in case we need it
-    @PutMapping("/updatebatchid")
-    public Batch updateById(int id) {
+    @PutMapping("/updatebyid")
+    public Batch updateById(@RequestBody int id) {
         return bs.updateById(id);
     }
 
-    @GetMapping("/batchbydate/{startDate}")
+    @GetMapping("/bydate/{startDate}")
     public Batch findByDate(@PathVariable("startDate") LocalDate startDate){
         return bs.findByDate(startDate);
     }
 
-    @GetMapping("/batchbycurr/{c}")
+    @GetMapping("/bycurr/{c}")
     public Batch findByCurriculum(@PathVariable("c") Curriculum c){
         return bs.findByCurriculum(c);
     }
 
-    @GetMapping("/batchbytrainer/{id}")
+    @GetMapping("/bytrainer/{id}")
     public Batch findByTrainer(@PathVariable("id") int id){
         return bs.findByTrainer(id);
     }
 
-    @DeleteMapping("/deletebatch")
+    @DeleteMapping("/delete")
     public void deleteBatch(Batch b) {
         bs.delete(b);
     }
 
+    // delete by ID in case we need it
+    @DeleteMapping("/deletebyid")
     public void deleteBatchById(int id) {
         bs.deleteById(id);
     }

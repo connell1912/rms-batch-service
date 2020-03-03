@@ -2,7 +2,7 @@ package com.rms;
 
 import java.time.LocalDate;
 
-import com.rms.dao.BatchDaoContract;
+import com.rms.dao.BatchDao;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
 import com.rms.service.BatchService;
@@ -22,13 +22,13 @@ public class BatchServiceApplication {
 		SpringApplication.run(BatchServiceApplication.class, args);
 	}
 
-	// @Bean
-	// CommandLineRunner runner(BatchDaoContract bdc) {
-	// 	LocalDate today = LocalDate.now();
-	// 	LocalDate finish = today.plusMonths(3);
-	// 	Curriculum c = Curriculum.CSHARP;
-	// 	return args -> {bdc.save(new Batch("Java Fullstack", today, finish, 1, 1, 21, c));};
-	// 	// return args -> {bdc.save(new Batch("Erin's Batch", today, finish, 2, 3, 540, c));};
-	// }
+	@Bean
+	CommandLineRunner runner(BatchDao bd) {
+		LocalDate today = LocalDate.now();
+		LocalDate finish = today.plusMonths(3);
+		Curriculum c = Curriculum.CSHARP;
+		return args -> {bd.save(new Batch("Java Fullstack", today, finish, 1, 1, 21, c, null));};
+		// return args -> {bd.save(new Batch("Erin's Batch", today, finish, 2, 3, 540, c));};
+	}
 
 }
