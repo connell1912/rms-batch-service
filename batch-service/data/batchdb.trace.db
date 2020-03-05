@@ -1,0 +1,9 @@
+2020-03-04 22:10:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+insert into batch (batch_id, associates, batch_name, co_trainer_id, curriculum, end_date, resource_metadata_id, start_date, trainer_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2020-03-04 22:14:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+insert into batch (batch_id, associates, batch_name, co_trainer_id, curriculum, end_date, resource_metadata_id, start_date, trainer_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2020-03-04 22:17:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+insert into batch (batch_id, associates, batch_name, co_trainer_id, curriculum, end_date, resource_metadata_id, start_date, trainer_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?) [42102-200]
