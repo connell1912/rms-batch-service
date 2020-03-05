@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class AspectClass {
 
-    public Logger log = Logger.getLogger(AspectClass.class.getName());
+    public final Logger log = Logger.getLogger(AspectClass.class.getName());
 
     @After("execution(* addNewBatch(..))")
     public void adviceMethodForInsertingBatch(JoinPoint jp){
