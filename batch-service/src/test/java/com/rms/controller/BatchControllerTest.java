@@ -1,35 +1,36 @@
-// package com.rms.controller;
+package com.rms.controller;
 
-// import org.junit.Before;
-// import org.junit.Test;
-// import org.mockito.Mock;
-// import org.junit.runner.RunWith;
-// import org.mockito.InjectMocks;
-// import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-// import org.springframework.test.web.servlet.MockMvc;
-// import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-// import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-// import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import java.sql.Timestamp;
 
-// @RunWith(SpringJUnit4ClassRunner.class)
-// public class BatchControllerTest {
+import com.rms.model.Batch;
 
-//     private MockMvc mockMvc;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-//     @InjectMocks
-//     private BatchController bt;
-//     @Before
-//     public void setUp() throws Exception{
-//         mockMvc = MockMvcBuilders.standaloneSetup(bt).build();
-//     }
+public class BatchControllerTest extends AbstractTest {
 
-//     @Test
-//     public void getAllBatches() throws Exception {
-        
-//         mockMvc.perform(get("/all"))
-//             .andExpect(status().isNotFound());
-//     }
+    @Override
+    @Before
+    public void setUp() {
+        super.setUp();
+    }
 
+    @Test
+    public void getAllBatches() throws Exception {
+        String uri = "/batch/all";
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON))
+                .andReturn();
 
-// }
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+        String content = mvcResult.getResponse().getContentAsString();
+        Batch[] b = super.mapFromJson(content, Batch[].class);
+        assertTrue(b.length >= 0);
+    }
+}
