@@ -2,7 +2,6 @@
     "configurations": [
         {
             "type": "java",
-<<<<<<< HEAD
             "name": "CodeLens (Launch) - BatchServiceApplication",
             "request": "launch",
             "mainClass": "com.rms.BatchServiceApplication",
@@ -10,17 +9,11 @@
         },
         {
             "type": "java",
-=======
->>>>>>> 455ac63683a5b9f09c2645c1cd0a4d0f36b726d8
             "name": "Spring Boot-BatchServiceApplication<batch-service>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-<<<<<<< HEAD
-            "mainClass": "com.rms.batchservice.BatchServiceApplication",
-=======
             "mainClass": "com.rms.BatchServiceApplication",
->>>>>>> 455ac63683a5b9f09c2645c1cd0a4d0f36b726d8
             "projectName": "batch-service",
             "args": ""
         }
