@@ -1,0 +1,24 @@
+2020-03-04 13:15:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 13:17:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 13:46:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 13:55:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 13:58:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 14:03:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 19:16:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
+2020-03-04 19:18:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH" not found; SQL statement:
+select batch0_.batch_id as batch_id1_0_, batch0_.associates as associat2_0_, batch0_.batch_name as batch_na3_0_, batch0_.co_trainer_id as co_train4_0_, batch0_.curriculum as curricul5_0_, batch0_.end_date as end_date6_0_, batch0_.resource_metadata_id as resource9_0_, batch0_.start_date as start_da7_0_, batch0_.trainer_id as trainer_8_0_ from batch batch0_ [42102-200]
