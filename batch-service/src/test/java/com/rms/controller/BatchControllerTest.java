@@ -3,8 +3,6 @@ package com.rms.controller;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.sql.Timestamp;
-
 import com.rms.model.Batch;
 
 import org.junit.Before;
