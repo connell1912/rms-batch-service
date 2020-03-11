@@ -45,7 +45,7 @@ public class Batch {
     @OneToOne
     private ResourceMetadata resourceMetadata;
 
-    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum, ResourceMetadata resourceMetadata) {
+    public Batch(String batchName, LocalDate startDate, LocalDate endDate, int trainerId, int coTrainerId, int associates, Curriculum curriculum) {
         this.batchName = batchName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -53,7 +53,6 @@ public class Batch {
         this.coTrainerId = coTrainerId;
         this.associates = associates;
         this.curriculum = curriculum;
-        this.resourceMetadata = resourceMetadata;
     }
       
 }

@@ -10,7 +10,6 @@ import static org.mockito.Mockito.when;
 import com.rms.dao.BatchDao;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
-import com.rms.model.ResourceMetadata;
 
 import java.time.LocalDate;
 import org.junit.Before;
@@ -34,20 +33,18 @@ public class BatchServiceTest {
 
     @Test
     public void testSaveNewBatch() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.insert(b);
         verify(bd, times(1)).save(b);
     }
 
     @Test
     public void testFindBatchById() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        when(bd.findById(1)).thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+        when(bd.findById(1)).thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA));
         Batch b = bs.findBatchById(1);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());
@@ -62,23 +59,21 @@ public class BatchServiceTest {
 
     @Test
     public void testUpdateBatch() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.insert(b);
         Batch b2 = bs.findBatchById(1);
-        b2 = new Batch("test-name2", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        b2 = new Batch("test-name2", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.update(b2);
         assertEquals("test-name2", b2.getBatchName());
     }
 
     @Test
     public void testDeleteBatch() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.insert(b);
         Batch b2 = bs.findBatchById(1);
         bs.delete(b2);
@@ -88,23 +83,21 @@ public class BatchServiceTest {
 
     @Test
     public void testUpdateById() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.insert(b);
         Batch b2 = bs.findBatchById(1);
-        b2 = new Batch("test-name2", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        b2 = new Batch("test-name2", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.updateById(1);
         assertEquals("test-name2", b2.getBatchName());
     }
 
     @Test
     public void testDeleteById(){
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
         bs.insert(b);
         bs.deleteById(1);
         Batch b2 = bs.findBatchById(1);
@@ -113,11 +106,10 @@ public class BatchServiceTest {
 
     @Test
     public void testFindByDate(){
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
         when(bd.findByStartDateBefore(start))
-                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA));
         Batch b = bs.findByDate(start);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());
@@ -126,11 +118,10 @@ public class BatchServiceTest {
 
     @Test
     public void testFindByCurriculum(){
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
         when(bd.findByCurriculumEquals(Curriculum.JAVA_MSA))
-                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA));
         Batch b = bs.findByCurriculum(Curriculum.JAVA_MSA);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());
@@ -139,11 +130,10 @@ public class BatchServiceTest {
 
     @Test
     public void testFindByTrainer(){
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
         when(bd.findByTrainerIdEquals(1))
-                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm));
+                .thenReturn(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA));
         Batch b = bs.findByTrainer(1);
         assertEquals("test-name", b.getBatchName());
         assertEquals(start, b.getStartDate());

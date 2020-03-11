@@ -16,11 +16,10 @@ public class BatchTest {
 
     @Test
     public void testConstructor() {
-        ResourceMetadata rm = new ResourceMetadata();
         LocalDate start = LocalDate.now();
         LocalDate finish = start.plusMonths(3);
-        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm);
-        assertTrue(b.equals(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA, rm)));
+        Batch b = new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA);
+        assertTrue(b.equals(new Batch("test-name", start, finish, 1, 1, 20, Curriculum.JAVA_MSA)));
     }
 
     @Test
