@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import com.rms.model.Batch;
 import com.rms.model.Curriculum;
 import com.rms.service.BatchService;
-import com.rms.service.RmdService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +17,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The BatchController class communicates with our front end. This class includes
+ * the annotations: 
+ * @RequestMapping maps the request for our class
+ * @CrossOrigins the communcation with the port tied to the front end
+ * @OtherAnnotations
+ * Other annotations include mappings tied to a specific HTTP method and are used to further describe 
+ * the URL pattern for each method. These methods handle HTTP request differently and will display 
+ * appropriate information once called. This is achieved by communicating with the BatchService class
+ * which is wired using the Autowired annotation.
+ */
 @RestController
 @RequestMapping(value = "/batch")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -25,9 +39,6 @@ public class BatchController{
 
     @Autowired
     BatchService bs;
-
-    @Autowired
-    RmdService rs;
 
     @GetMapping("/all")
     public Iterable<Batch> readAllBatches() {
@@ -49,7 +60,6 @@ public class BatchController{
         return bs.update(b);
     }
 
-    // have this update by ID method in case we need it
     @PutMapping("/updatebyid")
     public Batch updateById(@RequestBody int id) {
         return bs.updateById(id);
@@ -75,7 +85,6 @@ public class BatchController{
         bs.delete(b);
     }
 
-    // delete by ID in case we need it
     @DeleteMapping("/deletebyid")
     public void deleteBatchById(int id) {
         bs.deleteById(id);
