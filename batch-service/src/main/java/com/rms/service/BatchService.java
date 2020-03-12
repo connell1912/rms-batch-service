@@ -9,15 +9,18 @@ import com.rms.model.Curriculum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author 1912dec16 Java Fullstack Batch
+ * <br>
+ * <br>
+ * The BatchService class communicates with the BatchDao interface. It returns the appropriate objects
+ * and offers more descriptive method names.
+ */
 @Service
 public class BatchService {
 
     @Autowired
     BatchDao bd;
-
-    public void setBd(BatchDao bd) {
-        this.bd = bd;
-    }
 
     public Iterable<Batch> readAll() {
         return bd.findAll();
